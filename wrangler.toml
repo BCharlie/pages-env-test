@@ -2,17 +2,8 @@ name = "workers-test"
 main = "src/index.js"
 compatibility_date = "2023-12-01"
 
-# Set CLOUDFLARE_ENV from branch name and build
-[build]
-command = "export CLOUDFLARE_ENV=$(if [ \"$CF_PAGES_BRANCH\" = \"staging\" ]; then echo \"staging\"; elif [ \"$CF_PAGES_BRANCH\" = \"dev\" ]; then echo \"dev\"; else echo \"production\"; fi) && npm run build -- --mode $CLOUDFLARE_ENV"
-
-[assets]
-directory = "build"
-binding = "ASSETS"
-
-# Default routes (production)
+# Production (main branch)
 routes = [{ pattern = "prod-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
-
 
 [env.staging]
 routes = [{ pattern = "stage-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
