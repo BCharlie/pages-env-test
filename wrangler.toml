@@ -1,24 +1,6 @@
-name = "workers-test"
-main = "src/index.js"
-compatibility_date = "2023-12-01"
+name = "workers-test-staging"
+compatibility_date = "2025-07-31"
+route = "stage-test.charliebrown.uk"
 
 [assets]
 directory = "static"
-binding = "ASSETS"
-
-# Production (main branch)
-routes = [{ pattern = "prod-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
-
-[env.staging]
-routes = [{ pattern = "stage-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
-
-[env.staging.assets]
-directory = "static"
-binding = "ASSETS"
-
-[env.dev]
-routes = [{ pattern = "dev-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
-
-[env.dev.assets]
-directory = "static"
-binding = "ASSETS"
