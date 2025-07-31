@@ -1,0 +1,19 @@
+name = "workers-env-test"
+compatibility_date = "2023-12-01"
+pages_build_output_dir = "build"
+
+# Main/Production environment (main branch)
+[env.production]
+vars = { PUBLIC_ENV_NAME = "production", PUBLIC_API_URL = "https://api.production.com", PUBLIC_FEATURE_FLAG = "true" }
+
+# Staging environment (develop branch)  
+[env.staging]
+vars = { PUBLIC_ENV_NAME = "staging", PUBLIC_API_URL = "https://api.staging.com", PUBLIC_FEATURE_FLAG = "true" }
+
+# Preview environment (feature branches)
+[env.preview]
+vars = { PUBLIC_ENV_NAME = "preview", PUBLIC_API_URL = "https://api.preview.com", PUBLIC_FEATURE_FLAG = "false" }
+
+# Development environment (local)
+[env.development]
+vars = { PUBLIC_ENV_NAME = "development", PUBLIC_API_URL = "http://localhost:3001", PUBLIC_FEATURE_FLAG = "true" }
