@@ -2,15 +2,11 @@ name = "workers-test"
 main = "src/index.js"
 compatibility_date = "2023-12-01"
 
-# Build command that uses CLOUDFLARE_ENV to set Vite mode
-[build]
-command = "if [ \"$CLOUDFLARE_ENV\" = \"staging\" ]; then MODE=staging; elif [ \"$CLOUDFLARE_ENV\" = \"dev\" ]; then MODE=dev; else MODE=production; fi && npm run build -- --mode $MODE"
-
 [assets]
-directory = "build"
+directory = "static"
 binding = "ASSETS"
 
-# Default (production) environment
+# Production (main branch)
 routes = [{ pattern = "prod-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
 
 [env.staging]
