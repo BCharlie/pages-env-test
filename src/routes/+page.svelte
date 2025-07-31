@@ -1,12 +1,11 @@
 <script>
   import { browser } from '$app/environment';
-  import { PUBLIC_ENV_NAME, PUBLIC_API_URL, PUBLIC_FEATURE_FLAG } from '$env/static/public';
   
-  // Get build-time variables
+  // Build-time variables (will be injected by Worker environment)
   const buildTime = new Date().toISOString();
-  const buildEnv = PUBLIC_ENV_NAME ? PUBLIC_ENV_NAME : 'development';
-  const apiUrl = PUBLIC_API_URL ? PUBLIC_API_URL : 'https://api.example.com';
-  const featureFlag = PUBLIC_FEATURE_FLAG ? PUBLIC_FEATURE_FLAG : 'false';
+  const buildEnv = 'development';
+  const apiUrl = 'https://api.example.com';
+  const featureFlag = 'false';
 </script>
 
 <main>
