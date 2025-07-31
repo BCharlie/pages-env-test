@@ -1,4 +1,5 @@
 name = "workers-test"
+compatibility_date = "2025-07-31"
 route = "prod-test.charliebrown.uk"
 
 [env.staging]
