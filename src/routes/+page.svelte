@@ -9,8 +9,9 @@
 </script>
 
 <main>
-  <h1>Environment Variables Test</h1>
+  <h1>Environment Variables Test - STAGING BRANCH</h1>
   <p>Testing environment variables and build configuration for Cloudflare Workers deployment.</p>
+  <p><strong>Current Branch: STAGING</strong></p>
   
   <div class="env-section">
     <h2>Public Environment Variables</h2>
