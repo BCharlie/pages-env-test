@@ -1,18 +1,26 @@
 name = "workers-env-test"
 compatibility_date = "2023-12-01"
-pages_build_output_dir = "build"
 
 # Main/Production environment (main branch)
 [env.production]
 vars = { PUBLIC_ENV_NAME = "production", PUBLIC_API_URL = "https://api.production.com", PUBLIC_FEATURE_FLAG = "true" }
+routes = [
+  { pattern = "prod-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }
+]
 
 # Staging environment (develop branch)  
 [env.staging]
 vars = { PUBLIC_ENV_NAME = "staging", PUBLIC_API_URL = "https://api.staging.com", PUBLIC_FEATURE_FLAG = "true" }
+routes = [
+  { pattern = "stage-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }
+]
 
-# Preview environment (feature branches)
+# Preview/Development environment (dev branch and feature branches)
 [env.preview]
 vars = { PUBLIC_ENV_NAME = "preview", PUBLIC_API_URL = "https://api.preview.com", PUBLIC_FEATURE_FLAG = "false" }
+routes = [
+  { pattern = "dev-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }
+]
 
 # Development environment (local)
 [env.development]
