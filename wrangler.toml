@@ -3,23 +3,15 @@ main = "src/index.js"
 compatibility_date = "2023-12-01"
 
 [env.staging]
-routes = [{ pattern = "stage-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
+route =  "stage-test.charliebrown.uk"
 
-[env.staging.assets]
-directory = "static"
-binding = "ASSETS"
 
 [env.dev]
-routes = [{ pattern = "dev-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
+route = "dev-test.charliebrown.uk"
 
-[env.dev.assets]
-directory = "static"
-binding = "ASSETS"
-
+route = "prod-test.charliebrown.uk"
 
 [assets]
 directory = "static"
 binding = "ASSETS"
 
-# Production (main branch)
-routes = [{ pattern = "prod-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
