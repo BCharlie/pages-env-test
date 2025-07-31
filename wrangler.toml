@@ -2,6 +2,10 @@ name = "workers-test"
 main = "src/index.js"
 compatibility_date = "2023-12-01"
 
+[assets]
+directory = "static"
+binding = "ASSETS"
+
 # Production (main branch)
 routes = [{ pattern = "prod-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
 
