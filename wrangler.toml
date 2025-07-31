@@ -6,6 +6,15 @@ compatibility_date = "2023-12-01"
 [build]
 command = "npm run build"
 
+[env.production.build]
+command = "cp .env.production .env && npm run build"
+
+[env.staging.build]  
+command = "cp .env.staging .env && npm run build"
+
+[env.preview.build]
+command = "cp .env.preview .env && npm run build"
+
 # Static assets from SvelteKit build
 [assets]
 directory = "build"

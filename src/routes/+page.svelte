@@ -1,11 +1,12 @@
 <script>
   import { browser } from '$app/environment';
+  import { env } from '$env/dynamic/public';
   
-  // Build-time variables (will be injected by Worker environment)
+  // Build-time variables from environment files
   const buildTime = new Date().toISOString();
-  const buildEnv = 'development';
-  const apiUrl = 'https://api.example.com';
-  const featureFlag = 'false';
+  const buildEnv = env.PUBLIC_ENV_NAME || 'development';
+  const apiUrl = env.PUBLIC_API_URL || 'https://api.example.com';
+  const featureFlag = env.PUBLIC_FEATURE_FLAG || 'false';
 </script>
 
 <main>
