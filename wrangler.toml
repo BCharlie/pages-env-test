@@ -2,45 +2,24 @@ name = "workers-test"
 main = "src/index.js"
 compatibility_date = "2023-12-01"
 
-# Build command for SvelteKit
-[build]
-command = "npm run build"
-
-[env.production.build]
-command = "cp .env.production .env && npm run build"
-
-[env.staging.build]  
-command = "cp .env.staging .env && npm run build"
-
-[env.dev.build]
-command = "cp .env.dev .env && npm run build"
-
-# Static assets from SvelteKit build
 [assets]
 directory = "build"
 binding = "ASSETS"
 
-# Main/Production environment (main branch)
 [env.production]
-vars = { PUBLIC_ENV_NAME = "production", PUBLIC_API_URL = "https://api.production.com", PUBLIC_FEATURE_FLAG = "true" }
-routes = [
-  { pattern = "prod-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }
-]
+routes = [{ pattern = "prod-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
 
-# Staging environment (develop branch)  
+[env.production.build]
+command = "npm run build -- --mode production"
+
 [env.staging]
-vars = { PUBLIC_ENV_NAME = "staging", PUBLIC_API_URL = "https://api.staging.com", PUBLIC_FEATURE_FLAG = "true" }
-routes = [
-  { pattern = "stage-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }
-]
+routes = [{ pattern = "stage-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
 
-# Development environment (dev branch and feature branches)
+[env.staging.build]
+command = "npm run build -- --mode staging"
+
 [env.dev]
-vars = { PUBLIC_ENV_NAME = "dev", PUBLIC_API_URL = "https://api.dev.com", PUBLIC_FEATURE_FLAG = "false" }
-routes = [
-  { pattern = "dev-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }
-]
+routes = [{ pattern = "dev-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
 
-# Development environment (local)
-[env.development]
-vars = { PUBLIC_ENV_NAME = "development", PUBLIC_API_URL = "http://localhost:3001", PUBLIC_FEATURE_FLAG = "true" }
+[env.dev.build]
+command = "npm run build -- --mode dev"
