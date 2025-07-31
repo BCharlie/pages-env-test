@@ -1,11 +1,5 @@
-name = "workers-test"
+name = "workers-test-dev"
 compatibility_date = "2025-07-31"
-route = "prod-test.charliebrown.uk"
-
-[env.staging]
-route = "stage-test.charliebrown.uk"
-
-[env.dev]
 route = "dev-test.charliebrown.uk"
 
 [assets]
