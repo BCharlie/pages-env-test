@@ -2,15 +2,17 @@ name = "workers-test"
 main = "src/index.js"
 compatibility_date = "2023-12-01"
 
+# Default build command (production)
+[build]
+command = "npm run build -- --mode production"
+
 [assets]
 directory = "build"
 binding = "ASSETS"
 
-[env.production]
+# Default routes (production)
 routes = [{ pattern = "prod-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
 
-[env.production.build]
-command = "npm run build -- --mode production"
 
 [env.staging]
 routes = [{ pattern = "stage-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
