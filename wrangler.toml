@@ -12,5 +12,13 @@ routes = [{ pattern = "prod-test.charliebrown.uk/*", zone_name = "charliebrown.u
 [env.staging]
 routes = [{ pattern = "stage-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
 
+[env.staging.assets]
+directory = "static"
+binding = "ASSETS"
+
 [env.dev]
 routes = [{ pattern = "dev-test.charliebrown.uk/*", zone_name = "charliebrown.uk" }]
+
+[env.dev.assets]
+directory = "static"
+binding = "ASSETS"
