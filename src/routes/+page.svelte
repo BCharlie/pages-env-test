@@ -4,9 +4,9 @@
   
   // Get build-time variables
   const buildTime = new Date().toISOString();
-  const buildEnv = PUBLIC_ENV_NAME || 'development';
-  const apiUrl = PUBLIC_API_URL || 'https://api.example.com';
-  const featureFlag = PUBLIC_FEATURE_FLAG || 'false';
+  const buildEnv = PUBLIC_ENV_NAME ? PUBLIC_ENV_NAME : 'development';
+  const apiUrl = PUBLIC_API_URL ? PUBLIC_API_URL : 'https://api.example.com';
+  const featureFlag = PUBLIC_FEATURE_FLAG ? PUBLIC_FEATURE_FLAG : 'false';
 </script>
 
 <main>
