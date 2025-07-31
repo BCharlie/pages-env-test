@@ -1,5 +1,11 @@
 name = "workers-env-test"
+main = "src/index.js"
 compatibility_date = "2023-12-01"
+
+# Static assets from SvelteKit build
+[assets]
+directory = "build"
+binding = "ASSETS"
 
 # Main/Production environment (main branch)
 [env.production]
