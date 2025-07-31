@@ -9,15 +9,9 @@
 </script>
 
 <main>
-<<<<<<< HEAD
   <h1>Environment Variables Test - DEV BRANCH</h1>
   <p>Testing environment variables and build configuration for Cloudflare Workers deployment.</p>
   <p><strong>Current Branch: DEV</strong></p>
-=======
-  <h1>Environment Variables Test - MAIN BRANCH</h1>
-  <p>Testing environment variables and build configuration for Cloudflare Workers deployment.</p>
-  <p><strong>Current Branch: MAIN (Production)</strong></p>
->>>>>>> main
   
   <div class="env-section">
     <h2>Public Environment Variables</h2>
