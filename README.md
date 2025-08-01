@@ -6,9 +6,9 @@ React + Vite app demonstrating per-branch deployments with custom domains and en
 
 | Branch | Domain |
 |--------|--------|
-| `main` | [prod-test.charliebrown.uk](https://prod-test.charliebrown.uk) |
-| `staging` | [stage-test.charliebrown.uk](https://stage-test.charliebrown.uk) |
-| `dev` | [dev-test.charliebrown.uk](https://dev-test.charliebrown.uk) |
+| `main` | [prod.charliebrown.uk](https://prod.charliebrown.uk) |
+| `staging` | [stage.charliebrown.uk](https://stage.charliebrown.uk) |
+| `dev` | [dev.charliebrown.uk](https://dev.charliebrown.uk) |
 
 ## Setup
 
