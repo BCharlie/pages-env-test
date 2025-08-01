@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build script for Cloudflare Pages with React + Vite
-# Creates .env file and runs Vite build
+# Uses the correct .env file based on branch
 
 set -e
 
@@ -15,39 +15,33 @@ echo "  CF_PAGES: $CF_PAGES"
 BRANCH=${CF_PAGES_BRANCH:-${BRANCH:-dev}}
 echo "📦 Building for branch: $BRANCH"
 
-# Set environment variables based on branch
+# Select the correct .env file based on branch
 case $BRANCH in
   "main")
-    ENV_NAME="production"
-    API_URL="https://api.production.com"
-    FEATURE_FLAG="true"
+    ENV_FILE=".env.production"
     ;;
   "staging")
-    ENV_NAME="staging"
-    API_URL="https://api.staging.com"
-    FEATURE_FLAG="true"
+    ENV_FILE=".env.staging"
     ;;
   "dev"|*)
-    ENV_NAME="development"
-    API_URL="https://api.dev.com"
-    FEATURE_FLAG="false"
+    ENV_FILE=".env.dev"
     ;;
 esac
 
-echo "🔧 Environment: $ENV_NAME"
-echo "🌐 API URL: $API_URL"
-echo "🚩 Feature Flag: $FEATURE_FLAG"
+echo "📝 Using environment file: $ENV_FILE"
 
-# Create .env file for Vite
-echo "📝 Creating .env file..."
-cat > .env << EOF
-VITE_ENV_NAME=$ENV_NAME
-VITE_API_URL=$API_URL
-VITE_FEATURE_FLAG=$FEATURE_FLAG
-VITE_BRANCH=$BRANCH
-EOF
+# Check if env file exists
+if [ ! -f "$ENV_FILE" ]; then
+  echo "❌ Environment file $ENV_FILE not found!"
+  exit 1
+fi
 
-echo "✅ Created .env file:"
+# Copy the correct env file to .env for Vite
+cp "$ENV_FILE" .env
+echo "✅ Copied $ENV_FILE to .env"
+
+# Show what we're using
+echo "🔍 Environment variables:"
 cat .env
 
 # Run Vite build
