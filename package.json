@@ -4,7 +4,7 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"build": "echo 'No build needed - static HTML'"
+		"build": "./build.sh"
 	},
 	"engines": {
 		"node": ">=20"
