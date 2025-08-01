@@ -44,9 +44,9 @@ fi
 echo "🔍 Environment variables from $ENV_FILE:"
 cat "$ENV_FILE"
 
-# Run Vite build with specific env file
-echo "🔨 Running Vite build with $ENV_FILE..."
-npx vite build --mode $VITE_MODE --envDir . --envPrefix VITE_
+# Run Vite build with specific mode
+echo "🔨 Running Vite build with mode $VITE_MODE..."
+npx vite build --mode $VITE_MODE
 
 echo "✅ Build completed successfully!"
 echo "📦 Built files are in dist/ directory"
