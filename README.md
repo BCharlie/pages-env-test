@@ -90,7 +90,7 @@ npm install
 ### 2. Cloudflare Pages Setup
 1. Connect your GitHub repository to Cloudflare Pages
 2. Configure build settings:
-   - **Build command**: `npm run build`
+   - **Build command**: `npm run build:pages`
    - **Build output directory**: `dist`
 3. Set up custom domains for each branch in the Cloudflare dashboard
 
@@ -109,12 +109,17 @@ The environment variables are automatically loaded from the `.env.{mode}` files.
 {
   "scripts": {
     "dev": "vite",
-    "build": "chmod +x build.sh && ./build.sh",
-    "build:vite": "vite build",
+    "build": "vite build",
+    "build:pages": "./build.sh",
     "preview": "vite preview"
   }
 }
 ```
+
+- **`npm run dev`**: Start development server
+- **`npm run build`**: Standard Vite build (for local development)
+- **`npm run build:pages`**: Branch-aware build for Cloudflare Pages
+- **`npm run preview`**: Preview the build locally
 
 ## 🔍 Build Process
 
@@ -153,8 +158,11 @@ npm install
 # Start development server
 npm run dev
 
-# Build for production
+# Build for production (local)
 npm run build
+
+# Build for Cloudflare Pages (with branch detection)
+npm run build:pages
 
 # Preview build
 npm run preview
