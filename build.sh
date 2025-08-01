@@ -19,16 +19,20 @@ echo "📦 Building for branch: $BRANCH"
 case $BRANCH in
   "main")
     ENV_FILE=".env.production"
+    VITE_MODE="production"
     ;;
   "staging")
     ENV_FILE=".env.staging"
+    VITE_MODE="staging"
     ;;
   "dev"|*)
-    ENV_FILE=".env.dev"
+    ENV_FILE=".env.development"
+    VITE_MODE="development"
     ;;
 esac
 
 echo "📝 Using environment file: $ENV_FILE"
+echo "🎯 Vite mode: $VITE_MODE"
 
 # Check if env file exists
 if [ ! -f "$ENV_FILE" ]; then
@@ -36,17 +40,13 @@ if [ ! -f "$ENV_FILE" ]; then
   exit 1
 fi
 
-# Copy the correct env file to .env for Vite
-cp "$ENV_FILE" .env
-echo "✅ Copied $ENV_FILE to .env"
-
 # Show what we're using
-echo "🔍 Environment variables:"
-cat .env
+echo "🔍 Environment variables from $ENV_FILE:"
+cat "$ENV_FILE"
 
-# Run Vite build
-echo "🔨 Running Vite build..."
-npm run build:vite
+# Run Vite build with specific env file
+echo "🔨 Running Vite build with $ENV_FILE..."
+npx vite build --mode $VITE_MODE --envDir . --envPrefix VITE_
 
 echo "✅ Build completed successfully!"
 echo "📦 Built files are in dist/ directory"
