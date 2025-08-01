@@ -144,8 +144,8 @@ The environment variables are automatically loaded from the `.env.{mode}` files.
 graph LR
     A[Push to Branch] --> B[Cloudflare Pages Webhook]
     B --> C[CF_PAGES_BRANCH Detection]
-    C --> D[Select .env.{mode}]
-    D --> E[Vite Build --mode]
+    C --> D["Select .env.{mode}"]
+    D --> E["Vite Build --mode"]
     E --> F[Deploy to Custom Domain]
 ```
 
