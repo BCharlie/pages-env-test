@@ -40,8 +40,9 @@ function App() {
         </div>
       </div>
       
-      <p>✅ Built with React + Vite</p>
+      <p>✅ Built with React + Vite (updated)</p>
       <p>⏰ Built at: {buildTime}</p>
+      <p>🔧 Debug: VITE_BRANCH = "{import.meta.env.VITE_BRANCH}"</p>
     </div>
   )
 }
