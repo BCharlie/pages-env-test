@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Build script for Cloudflare Pages with environment variable injection
-# Detects branch and injects appropriate environment variables into HTML
+# Build script for Cloudflare Pages with React + Vite
+# Creates .env file and runs Vite build
 
 set -e
 
-echo "🌟 Starting build process..."
+echo "🌟 Starting React + Vite build process..."
 echo "📋 Environment variables:"
 echo "  CF_PAGES_BRANCH: $CF_PAGES_BRANCH"
 echo "  BRANCH: $BRANCH"
@@ -38,28 +38,21 @@ echo "🔧 Environment: $ENV_NAME"
 echo "🌐 API URL: $API_URL"
 echo "🚩 Feature Flag: $FEATURE_FLAG"
 
-# Make sure we have the template
-if [ ! -f "index.html" ]; then
-  echo "❌ index.html not found!"
-  exit 1
-fi
+# Create .env file for Vite
+echo "📝 Creating .env file..."
+cat > .env << EOF
+VITE_ENV_NAME=$ENV_NAME
+VITE_API_URL=$API_URL
+VITE_FEATURE_FLAG=$FEATURE_FLAG
+VITE_BRANCH=$BRANCH
+EOF
 
-# Backup original
-cp index.html index.html.bak
+echo "✅ Created .env file:"
+cat .env
 
-# Inject environment variables into HTML using sed (compatible with Linux/macOS)
-sed -i.tmp "s|{{ENV_NAME}}|$ENV_NAME|g" index.html
-sed -i.tmp "s|{{API_URL}}|$API_URL|g" index.html
-sed -i.tmp "s|{{FEATURE_FLAG}}|$FEATURE_FLAG|g" index.html
-sed -i.tmp "s|{{BRANCH}}|$BRANCH|g" index.html
-
-# Clean up temp files
-rm -f index.html.tmp
+# Run Vite build
+echo "🔨 Running Vite build..."
+npm run build:vite
 
 echo "✅ Build completed successfully!"
-echo "📄 Environment variables injected into HTML"
-
-# Show what was injected for debugging
-echo "🔍 Verifying injection:"
-grep -n "Environment:" index.html || echo "No Environment line found"
-grep -n "API URL:" index.html || echo "No API URL line found"
+echo "📦 Built files are in dist/ directory"
