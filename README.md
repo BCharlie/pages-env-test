@@ -13,8 +13,8 @@ React + Vite app demonstrating per-branch deployments with custom domains and en
 ## Setup
 
 ```bash
-git clone <repository-url>
-cd workers
+git clone git@github.com:BCharlie/pages-env-test.git
+cd pages-env-test
 npm install
 npm run dev
 ```
