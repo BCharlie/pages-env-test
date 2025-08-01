@@ -1,0 +1,21 @@
+# Cloudflare Pages configuration
+
+# Production (main branch)
+[production]
+compatibility_date = "2025-07-31"
+build_command = "npm run build:prod"
+build_output_directory = "build"
+custom_domains = ["prod-test.charliebrown.uk"]
+
+# Preview branches
+[dev]
+compatibility_date = "2025-07-31"
+build_command = "npm run build:dev"
+build_output_directory = "build"
+custom_domains = ["dev-test.charliebrown.uk"]
+
+[staging]
+compatibility_date = "2025-07-31"
+build_command = "npm run build:staging"
+build_output_directory = "build"
+custom_domains = ["stage-test.charliebrown.uk"]
