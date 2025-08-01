@@ -23,7 +23,7 @@ npm run dev
 
 1. Connect GitHub repo to Cloudflare Pages
 2. Build settings:
-   - **Build command**: `npm run build:pages`
+   - **Build command**: `npm run build:$CF_PAGES_BRANCH`
    - **Build output directory**: `dist`
 3. Add custom domains for each branch
 
@@ -31,7 +31,9 @@ npm run dev
 
 - `npm run dev` - Development server
 - `npm run build` - Local build (uses `.env.local`)
-- `npm run build:pages` - Branch-aware build for Cloudflare Pages
+- `npm run build:main` - Production build
+- `npm run build:staging` - Staging build  
+- `npm run build:dev` - Development build
 - `npm run preview` - Preview build
 
 ## Environment Files
@@ -45,4 +47,4 @@ All variables must be prefixed with `VITE_` to be available in the React app.
 
 ## How It Works
 
-The `build.sh` script detects the current branch via `CF_PAGES_BRANCH` and runs Vite with the appropriate mode, automatically loading the correct `.env.{mode}` file.
+Cloudflare Pages substitutes `$CF_PAGES_BRANCH` with the actual branch name, running the corresponding `build:{branch}` script which loads the matching `.env.{mode}` file via Vite's `--mode` flag.
