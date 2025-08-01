@@ -1,6 +1,0 @@
-name = "workers-test-dev"
-compatibility_date = "2025-07-31"
-route = "dev-test.charliebrown.uk"
-
-[assets]
-directory = "static"
