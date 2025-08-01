@@ -7,6 +7,9 @@
 		"dev": "vite",
 		"build": "vite build",
 		"build:pages": "./build.sh",
+		"build:main": "echo '🚀 Building main branch with production mode' && vite build --mode production",
+		"build:staging": "echo '🚀 Building staging branch with staging mode' && vite build --mode staging",
+		"build:dev": "echo '🚀 Building dev branch with development mode' && vite build --mode development",
 		"preview": "vite preview"
 	},
 	"engines": {
